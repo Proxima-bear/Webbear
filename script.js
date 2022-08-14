@@ -1,21 +1,45 @@
-const list = document.createElement('ul');
-const info = document.createElement('p');
-const html = document.querySelector('html');
+function clickHandler() {
 
-info.textContent = 'Для начала работы, тапни по экрану и напиши любое слово или предложение';
+  var resultz = document.getElementById("result");
 
-document.body.appendChild(info);
-document.body.appendChild(list);
+  nullStyles(resultz.style);
 
-html.onclick = function() {
-  const listItem = document.createElement('li');
-  const listContent = prompt('What content do you want the list item to have?');
-  listItem.textContent = listContent;
-  list.appendChild(listItem);
+  var input = document.getElementById("input");
 
-  listItem.onclick = function(e) {
-    e.stopPropagation();
-    const listContent = prompt('Enter new content for your list item');
-    this.textContent = listContent;
+  var checkboxGrowUp = document.getElementById("checkboxGrowUp");
+
+  if (checkboxGrowUp.checked)
+  {
+      resultz.style.fontSize = "16px";
   }
+  if (checkboxChangeColor.checked)
+  {
+      resultz.style.color = "red";
+  }
+  if (checkboxMakeCursive.checked)
+  {
+      resultz.style.fontStyle = "italic";
+  }
+  if (checkboxToUpperCase.checked)
+  {
+      resultz.style.textTransform = "uppercase";
+  }
+  if (cheboxtMakeOutlined.checked)
+  {
+      resultz.style.textDecoration = "line-through";
+  }
+  
+  resultz.innerHTML = input.value;
+  return false;
 }
+
+
+function nullStyles(stylex)
+{
+  stylex.textTransform = "none";
+  stylex.color = "black";
+  stylex.fontSize  = "14px";
+  stylex.fontStyle = "inherit";
+  stylex.textDecoration = "none";
+}
+
